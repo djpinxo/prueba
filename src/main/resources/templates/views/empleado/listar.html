@@ -1,0 +1,34 @@
+<h1>Empleados</h1>
+<table class="table table-striped">
+<tr>
+<th>Nombre</th>
+<th>Apellidos</th>
+<th>Telefono</th>
+<th>Ciudad</th>
+<th>Lenguajes conocidos</th>
+<th colspan="2">Acciones</th>
+</tr>
+<tr th:each="empleado:${empleados}">
+<td th:text="${empleado.nombre}"></td>
+<td th:text="${empleado.apellidos}"></td>
+<td th:text="${empleado.telefono}"></td>
+<td th:text="${empleado.ciudad.nombre}"></td>
+<td>
+<ul th:each="lenguaje:${empleado.lenguajes}">
+<li th:text="${lenguaje.nombre}"></li>
+</ul>
+</td>
+<td>
+<form action="/empleado/borrar">
+<input type="text" name="id" hidden="true" th:value="${empleado.id}"/>
+<button>borrar</button>
+</form>
+</td>
+<td>
+<form action="/empleado/editar">
+<input type="text" name="id" hidden="true" th:value="${empleado.id}"/>
+<button>editar</button>
+</form>
+</td>
+</tr>
+</table>

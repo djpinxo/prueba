@@ -1,0 +1,20 @@
+<h1>Crear Empleado</h1>
+<form method="post">
+	<h6>Nombre del empleado</h6>
+	<input type="text" name="nombre" />
+	<h6>Apellidos del empleado</h6>
+	<input type="text" name="apellidos" />
+	<h6>Telefono del empleado</h6>
+	<input type="text" name="telefono" />
+	<h6>Ciudad del empleado</h6>
+	<select name="idciudad">
+		<div th:each="ciudad:${ciudades}">
+			<option th:value="${ciudad.id}" th:text="${ciudad.nombre}"></option>
+		</div>
+	</select>
+	<h6>Lenguajes que conoce el empleado</h6>
+	<div th:each="lenguaje:${lenguajes}">
+		<input type="checkbox" name="idslenguajes" th:value="${lenguaje.id}" th:text="${lenguaje.nombre}" />
+	</div>
+	<button>crear</button>
+</form>

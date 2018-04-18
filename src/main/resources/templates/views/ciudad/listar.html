@@ -1,0 +1,22 @@
+<h1>Ciudades</h1>
+<table class="table table-striped">
+<tr>
+<th>Nombre</th>
+<th colspan="2">Acciones</th>
+</tr>
+<tr th:each="ciudad:${ciudades}">
+<td th:text="${ciudad.nombre}"></td>
+<td>
+<form action="/ciudad/borrar">
+<input type="text" name="id" hidden="true" th:value="${ciudad.id}"/>
+<button>borrar</button>
+</form>
+</td>
+<td>
+<form action="/ciudad/editar">
+<input type="text" name="id" hidden="true" th:value="${ciudad.id}"/>
+<button>editar</button>
+</form>
+</td>
+</tr>
+</table>

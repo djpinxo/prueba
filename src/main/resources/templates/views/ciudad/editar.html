@@ -1,0 +1,7 @@
+<h1 th:text="'modificar '+${ciudad.nombre}"></h1>
+<form method="post">
+<input type="text" name="id" hidden="true" th:value="${ciudad.id}"/>
+<h6>nombre</h6>
+<input type="text" name="nombre" th:value="${ciudad.nombre}"/>
+<button>modificar</button>
+</form>

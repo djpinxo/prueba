@@ -1,0 +1,7 @@
+<h1 th:text="'modificar '+${lenguaje.nombre}"></h1>
+<form method="post">
+<input type="text" name="id" hidden="true" th:value="${lenguaje.id}"/>
+<h6>nombre</h6>
+<input type="text" name="nombre" th:value="${lenguaje.nombre}"/>
+<button>modificar</button>
+</form>

@@ -1,0 +1,22 @@
+<h1>lenguajes</h1>
+<table class="table table-striped">
+<tr>
+<th>Nombre</th>
+<th colspan="2">Acciones</th>
+</tr>
+<tr th:each="lenguaje:${lenguajes}">
+<td th:text="${lenguaje.nombre}"></td>
+<td>
+<form action="/lenguaje/borrar">
+<input type="text" name="id" hidden="true" th:value="${lenguaje.id}"/>
+<button>borrar</button>
+</form>
+</td>
+<td>
+<form action="/lenguaje/editar">
+<input type="text" name="id" hidden="true" th:value="${lenguaje.id}"/>
+<button>editar</button>
+</form>
+</td>
+</tr>
+</table>

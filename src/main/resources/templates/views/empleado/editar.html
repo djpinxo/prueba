@@ -1,0 +1,31 @@
+<h1 th:text="'modificar '+${empleado.nombre}"></h1>
+<form method="post">
+<input type="text" name="id" hidden="true" th:value="${empleado.id}"/>
+	<h6>Nombre del empleado</h6>
+	<input type="text" name="nombre" th:value="${empleado.nombre}"/>
+	<h6>Apellidos del empleado</h6>
+	<input type="text" name="apellidos" th:value="${empleado.apellidos}"/>
+	<h6>Telefono del empleado</h6>
+	<input type="text" name="telefono" th:value="${empleado.telefono}"/>
+	<h6>Ciudad del empleado</h6>
+	<select name="idciudad">
+		<div th:each="ciudad:${ciudades}">
+			<div th:if="${empleado.ciudad.id}!=${ciudad.id}">
+				<option th:value="${ciudad.id}" th:text="${ciudad.nombre}"></option>
+			</div>
+			<div th:if="${empleado.ciudad.id}==${ciudad.id}">
+				<option th:value="${ciudad.id}" selected="true" th:text="${ciudad.nombre}"></option>
+			</div>
+		</div>
+	</select>
+	<h6>Lenguajes que conoce el empleado</h6>
+	<div th:each="lenguaje:${lenguajes}">
+		<div th:if="${empleado.lenguajes.contains(lenguaje)}">
+			<input type="checkbox" checked="true" name="idslenguajes" th:value="${lenguaje.id}" th:text="${lenguaje.nombre}" />
+		</div>
+		<div th:if="!${empleado.lenguajes.contains(lenguaje)}">
+			<input type="checkbox" name="idslenguajes" th:value="${lenguaje.id}" th:text="${lenguaje.nombre}" />
+		</div>
+	</div>
+	<button>modificar</button>
+</form>
